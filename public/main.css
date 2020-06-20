@@ -75,7 +75,7 @@ header {
     line-height: 34px;
 }
 
-/* .links a img {
+.links a img {
     width: 50px;
 }
 
@@ -83,4 +83,4 @@ header {
     background-color: var(--color-black);
     transition: color 300ms;
     border-radius: 50%;
-} */
+}

@@ -18,8 +18,8 @@
     <div class="links">
         {% for link in about.links %}
             <a href="{{ link.url }}" target="blank">
-                {# <img src="github.svg" alt="Github"> #}
-                {{ link.name }}
+                <img src="{{ link.img }}" alt="{{ link.name }}">
+                {# {{ link.name }} #}
             </a>
         {% endfor %}
 

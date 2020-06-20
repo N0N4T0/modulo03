@@ -6,11 +6,13 @@ module.exports =  {
     links: [
         {
             name: "Github",
-            url: "https://github.com/Rocketseat"
+            url: "https://github.com/Rocketseat",
+            img: "github.svg"
         },
         {
             name: "Linkedin",
-            url: "https://www.linkedin.com/school/rocketseat/"
+            url: "https://www.linkedin.com/school/rocketseat/",
+            img: "linkedin.svg"
         }
     ]
 }
