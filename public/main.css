@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap');
+
+:root {
+    --color-black: #161313b9;
+    --color-cards: #49308dcc;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    box-sizing: border-box;
+}
+
+body {
+    background: rgb(60, 60, 94);
+    font-family: 'Source Sans Pro', sans-serif;
+    color: rgb(255, 255, 255);
+}
+
+header {
+    padding: 32px;
+    border-bottom: 1px solid rgb(97, 96, 96);
+    background: #6c4fbb;
+
+}
+
+.links {
+    text-align: center;
+}
+
+.links a {
+    color: white;
+    font-size: 22px;
+    line-height: 32px;
+    margin: 0 16px;
+    text-decoration: none;
+}
+
+.links a:hover {
+    color: var(--color-black);
+    transition: color 300ms;
+}
+
+#wrapper {
+    text-align: center;
+    padding: 32px;
+}
+
+#wrapper img {
+    border-radius: 50%;
+    height: 250px;
+    border: 2px whitesmoke solid;
+    margin-bottom: 32px;
+}
+
+#wrapper h1 {
+    font-size: 42px;
+    line-height: 52px;
+    font-weight: bold;
+}
+
+#wrapper h2 {
+    font-size: 24px;
+    line-height: 34px;
+    font-weight: normal;
+    margin-top: 8px;
+    opacity: 0.8;
+}
+
+#wrapper p {
+    max-width: 500px;
+    margin: 10px auto 32px;
+    font-size: 24px;
+    line-height: 34px;
+}
+
+/* .links a img {
+    width: 50px;
+}
+
+.links a img:hover {
+    background-color: var(--color-black);
+    transition: color 300ms;
+    border-radius: 50%;
+} */
