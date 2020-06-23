@@ -21,8 +21,7 @@ body {
 header {
     padding: 32px;
     border-bottom: 1px solid rgb(97, 96, 96);
-    background: #6c4fbb;
-
+    background: #0606077a;
 }
 
 .links {
@@ -33,13 +32,32 @@ header {
     color: white;
     font-size: 22px;
     line-height: 32px;
-    margin: 0 16px;
+    margin: 0;
     text-decoration: none;
+    position: relative;
 }
 
-.links a:hover {
-    color: var(--color-black);
-    transition: color 300ms;
+.links a + a {
+    margin-left: 25px;
+}
+
+header .links a:hover {
+    color: rgb(255, 123, 0); 
+}
+
+header .links a:after {
+    content: "";
+    width: 0;
+    height: 3px;
+    background-color: rgb(255, 4, 4);
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+}
+
+header .links a:hover::after {
+    width: 75%;
+    transition: width 200ms ease-in-out;
 }
 
 #wrapper {
@@ -80,7 +98,7 @@ header {
 }
 
 .links a img:hover {
-    background-color: var(--color-black);
+    background-color: rgb(255, 123, 0);
     transition: color 300ms;
     border-radius: 50%;
 }
