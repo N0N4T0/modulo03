@@ -7,12 +7,12 @@ module.exports =  {
         {
             name: "Github",
             url: "https://github.com/Rocketseat",
-            img: "github.svg"
+            img: "assets/github.svg"
         },
         {
             name: "Linkedin",
             url: "https://www.linkedin.com/school/rocketseat/",
-            img: "linkedin.svg"
+            img: "assets/linkedin.svg"
         }
     ]
 }
