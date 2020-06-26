@@ -1,3 +1,14 @@
 {
-    "teachers": []
+  "teachers": [
+    {
+      "id": 1,
+      "avatar_url": "http://google.com",
+      "name": "Calculadora",
+      "birth": 1592265600000,
+      "level": "medio",
+      "type": "P",
+      "area": "Matemática",
+      "created_at": 1593203137030
+    }
+  ]
 }
