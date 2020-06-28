@@ -32,7 +32,7 @@ routes.post('/teachers', teachers.post)
 
 routes.get('/teachers/:id', teachers.show)
 
-routes.get('/teachers/edit', teachers.edit)
+routes.get('/teachers/:1/edit', teachers.edit)
 
 
 routes.get('/students', function(req, res){

@@ -23,8 +23,8 @@
             </div>
 
             <div class="item">
-                <div>Data de nascimento</div>
-                <div>{{teacher.birth}}</div>
+                <div>Idade</div>
+                <div>{{teacher.age}}</div>
             </div>
 
             <div class="item">
@@ -51,10 +51,15 @@
 
             <div class="item">
                 <div>Área de atuação</div>
-                <div>{{teacher.area}}</div>
+                <div>{{teacher.areas}}</div>
             </div>
 
-            <a href="#" class="button">Editar</a>
+            <div class="item">
+                <div>Desde</div>
+                <div>{{teacher.created_at}}</div>
+            </div>
+
+            <a href="/teachers/:id/edit" class="button">Editar</a>
 
         </section>
     </form>
