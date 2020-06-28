@@ -1,6 +1,30 @@
 const fs = require('fs')
 const data = require('./data.json')
 
+//edit
+exports.edit = function(req, res){
+
+
+    return res.render('teachers/edit')
+}
+
+exports.show = function(req, res){
+    const { id } = req.params
+
+    const foundTeacher = data.teachers.find(function(teacher){
+        return teacher.id == id
+    })
+
+    if(!foundTeacher) return res.send("Professor não encontrado")
+
+    const teacher = {
+        ...foundTeacher
+    }
+
+    return res.render('teachers/show', { teacher })
+}
+
+//create
 exports.post = function(req, res){
     //validando dados
     const keys = Object.keys(req.body)
