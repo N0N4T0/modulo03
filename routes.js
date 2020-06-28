@@ -3,7 +3,7 @@ const routes = express.Router()
 
 const videos = require('./data')
 const about = require('./info')
-
+const video = require('./video')
 const teachers = require('./teachers')
 
 // Rotas
@@ -17,19 +17,7 @@ routes.get('/portfolio', function(req, res) {
 })
 
 
-routes.get('/video', function(req, res) {
-    const id = req.query.id;
-
-    const video = videos.find(function(video){
-        return video.id == id
-    })
-
-    if (!video) {
-        return res.send('Video not found!')
-    }
-    
-    return res.render('video', {item: video})
-})
+routes.get('/video', video.show)
 
 
 routes.get('/teachers', function(req, res) {
