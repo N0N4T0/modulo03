@@ -8,18 +8,28 @@
 {% endblock %}
 
 {% block content %}
-    <form class="card" method="POST" action="/teachers">
+    <div class="card">
         <section class="picture"
             style="background-image: url('https://source.unsplash.com/collection/10553730/505x500');"
-        >
+            >
         </section>
 
         <section class="info">
-            <h3>Editar professor</h3>
+            <form method="POST" action="/teachers?_method=PUT">         
+                <h3>Editar professor</h3>
 
-            {% include 'teachers/fields.njk' %}
+                {% include 'teachers/fields.njk' %}
 
+                <input type="hidden" name="id" value="{{teacher.id}}">
+            </form>
+
+            <form id="form-delete" action="/teachers?_method=DELETE" method="POST">
+                <input type="hidden" name="id" value="{{teacher.id}}">
+
+                <button type="submit">Deletar</button>
+            </form>
         </section>
-    </form>
+    </div>
+   
 
 {% endblock %}

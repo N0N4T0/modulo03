@@ -3,6 +3,15 @@ const Intl = require('intl')
 const data = require('./data.json')
 const { age, date, graduation } = require('./utils')
 
+
+//put = atualiar
+exports.put = function(req, res){
+    
+
+
+    return res.redirect(`/instructores/${id}`)
+}
+
 //edit
 exports.edit = function(req, res){
     const { id } = req.params
