@@ -59,7 +59,7 @@
 .info h3{
     text-transform: uppercase;
     font-weight: bolder;
-    color: rgb(253, 123, 0);
+    color: var(--color-orange);
     font-size: 18px;
 }
 
@@ -146,4 +146,75 @@ a.button {
 
 a.button:hover {
     background-color: rgb(0, 148, 49);
+}
+
+/* INDEX.NJK */
+table {
+    width: 100%;
+}
+
+.table-container {
+    display: block;
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+.table-container table {
+    border-spacing: 0;
+}
+
+.table-container thead tr th {
+    text-align: left;
+}
+
+td, th {
+    padding: 16px;
+    border-bottom: 1px solid #d9d9d9;
+    color: black;
+}
+
+th {
+    text-transform: uppercase;
+    color: #777777;
+    font-size: 14px;
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+tbody tr td:first-child {
+    display: grid;
+    grid-template-columns: 64px 1fr;
+    align-items: center;
+}
+
+tbody tr td:first-child span {
+    width: 40px;
+    height: 40px;
+    background-position: center;
+    background-size: cover;
+    border-radius: 50%;
+    box-shadow: 3px 1px 6px -4px var(--color-orange);
+    border: 2px solid white;
+}
+
+tbody tr td:last-child a {
+    text-decoration: none;
+    background-color: var(--color-orange);
+    padding: 8px 16px;
+    color: white;
+    text-transform: uppercase;
+    font-size: 12px;
+    border-radius: 4px;
+}
+
+.table-container thead tr th:last-child,
+td:last-child {
+    text-align: center;
+}
+
+tbody tr td:last-child a:hover {
+    background-color: rgb(40, 90, 228);
+
 }

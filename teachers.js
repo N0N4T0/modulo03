@@ -3,12 +3,18 @@ const data = require('./data.json')
 const Intl = require('intl')
 const { age, date, graduation } = require('./utils')
 
+
+//index
+exports.index = function(req, res) {
+    return res.render('teachers/index', { teachers: data.teachers })
+}
+
 //delete
 exports.delete = function(req, res) {
     const { id } = req.body
 
     const filteredTeachers = data.teachers.filter(function(teacher){
-        return teacher.id == id
+        return teacher.id != id
     })
 
     data.teachers = filteredTeachers
@@ -23,12 +29,11 @@ exports.delete = function(req, res) {
 //put = atualiar
 exports.put = function(req, res){
     const { id } = req.body
-
-    let index = 0;
+    let index 
 
     const foundTeacher = data.teachers.find(function(teacher, foundIndex){
-        if(id == teacher.id) {
-            index == foundIndex
+        if(teacher.id == id) {
+            index = foundIndex
             return true
         }
     })
@@ -39,7 +44,7 @@ exports.put = function(req, res){
         ...foundTeacher,
         ...req.body,
         id: Number(id),
-        birth: date(foundTeacher.birth),
+        birth: Date.parse(req.body.birth),
     }
 
     data.teachers[index] = teacher
@@ -70,7 +75,7 @@ exports.edit = function(req, res){
     return res.render('teachers/edit', { teacher })
 }
 
-//mostrar
+//show = mostrar
 exports.show = function(req, res){
     const { id } = req.params
 
