@@ -40,9 +40,9 @@
             <option
                 value="value"
                 disabled="disabled"
-                    {% if teacher.level == " " %}
-                        selected="select"
-                    {% endif %}  >Selecione uma opção</option>
+                selected="select"
+                > Selecione uma opção
+            </option>
             <option 
                 value="medio"
                 {% if teacher.level == "medio" %} 
@@ -51,19 +51,19 @@
             </option>
             <option 
                 value="superior"
-                {% if teacher.level == "medio" %} 
+                {% if teacher.level == "superior" %} 
                     selected="select"
                 {% endif %}>Ensino Superior Completo
             </option>
             <option 
                 value="mestrado"
-                {% if teacher.level == "medio" %} 
+                {% if teacher.level == "mestrado" %} 
                     selected="select"
                 {% endif %}>Mestrado
             </option>
             <option 
                 value="doutorado"
-                {% if teacher.level == "medio" %} 
+                {% if teacher.level == "doutorado" %} 
                     selected="select"
                 {% endif %}>Doutorado
             </option>

@@ -1,15 +1,54 @@
 const fs = require('fs')
-const Intl = require('intl')
 const data = require('./data.json')
+const Intl = require('intl')
 const { age, date, graduation } = require('./utils')
 
+//delete
+exports.delete = function(req, res) {
+    const { id } = req.body
+
+    const filteredTeachers = data.teachers.filter(function(teacher){
+        return teacher.id == id
+    })
+
+    data.teachers = filteredTeachers
+
+    fs.writeFile('data.json', JSON.stringify(data, null, 2), function(err){
+        if(err) return res.send("Write file error")
+    
+        return res.redirect('/teachers')
+    })
+}
 
 //put = atualiar
 exports.put = function(req, res){
+    const { id } = req.body
+
+    let index = 0;
+
+    const foundTeacher = data.teachers.find(function(teacher, foundIndex){
+        if(id == teacher.id) {
+            index == foundIndex
+            return true
+        }
+    })
+
+    if(!foundTeacher) return res.send("Professor não encontrado")
+
+    const teacher = {
+        ...foundTeacher,
+        ...req.body,
+        id: Number(id),
+        birth: date(foundTeacher.birth),
+    }
+
+    data.teachers[index] = teacher
+
+    fs.writeFile('data.json', JSON.stringify(data, null, 2), function(err){
+        if(err) return res.send("Write file error")
     
-
-
-    return res.redirect(`/instructores/${id}`)
+        return res.redirect(`/teachers/${id}`)
+    })
 }
 
 //edit
@@ -31,6 +70,7 @@ exports.edit = function(req, res){
     return res.render('teachers/edit', { teacher })
 }
 
+//mostrar
 exports.show = function(req, res){
     const { id } = req.params
 
