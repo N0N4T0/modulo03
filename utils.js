@@ -23,5 +23,12 @@ module.exports = {
         const day = `0${date.getUTCDate()}`.slice(-2)
 
         return `${year}-${month}-${day}`
+    },
+
+    graduation: function (level){
+        return (level == 'medio') ? 'Ensino Médio Completo'
+        : (level == 'superior') ? 'Ensino Superior Completo'
+        : (level == 'mestrado') ? 'Mestrado'
+        : 'Doutorado'
     }
 } 
