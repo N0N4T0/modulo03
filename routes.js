@@ -4,7 +4,8 @@ const routes = express.Router()
 const videos = require('./data')
 const about = require('./info')
 const video = require('./video')
-const teachers = require('./teachers')
+const teachers = require('./controllers/teachers')
+const students =require('./controllers/students')
 
 // Rotas
 routes.get('/', function(req, res) {
@@ -24,26 +25,22 @@ routes.get('/video', video.show)
 
 
 routes.get('/teachers', teachers.index)
-
-routes.get('/teachers/create', function(req, res){
-    return res.render('teachers/create')
-})
-
+routes.get('/teachers/create', teachers.create)
 routes.post('/teachers', teachers.post)
-
 routes.get('/teachers/:id', teachers.show)
-
 routes.get('/teachers/:id/edit', teachers.edit)
-
 routes.put('/teachers', teachers.put)
-
 routes.delete('/teachers', teachers.delete)
 
 
 
-routes.get('/students', function(req, res){
-    return res.render('students/index')
-})
+routes.get('/students', students.index)
+routes.get('/students/create', students.create)
+routes.post('/students', students.post)
+routes.get('/students/:id', students.show)
+routes.get('/students/:id/edit', students.edit)
+routes.put('/students', students.put)
+routes.delete('/students', students.delete)
 
 
 

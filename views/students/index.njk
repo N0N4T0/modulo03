@@ -4,10 +4,38 @@
 
     <title>Professores - Rocketseat</title>
 
-    
+    <link rel="stylesheet" href="/styles/people.css">
 {% endblock %}
 
 {% block content %}
-    
+    <div class="card table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome completo</th>
+                    <th>Acompanhamento</th>
+                    <th>Informações</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for teacher in teachers %}
+                    <tr>
+                        <td>
+                            <span style="background-image: url({{teacher.avatar_url}}">
+                            </span>
+                            {{teacher.name}}
+                        </td>
+                        <td>
+                            {{teacher.areas}}
+                        </td>
+                        <td>
+                            <a href="/teachers/{{teacher.id}}">ver</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 
 {% endblock %}

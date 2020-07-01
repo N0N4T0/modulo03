@@ -201,7 +201,7 @@ tbody tr td:first-child span {
 
 tbody tr td:last-child a {
     text-decoration: none;
-    background-color: var(--color-orange);
+    background-color: var(--color-cards);
     padding: 8px 16px;
     color: white;
     text-transform: uppercase;
@@ -215,6 +215,6 @@ td:last-child {
 }
 
 tbody tr td:last-child a:hover {
-    background-color: rgb(40, 90, 228);
+    background-color: var(--color-orange);
 
 }
