@@ -2,35 +2,47 @@
 
 {% block head %}
 
-    <title>Professores - Rocketseat</title>
+    <title>Estudantes - Rocketseat</title>
 
     <link rel="stylesheet" href="/styles/people.css">
 {% endblock %}
 
 {% block content %}
     <div class="card table-container">
+        <a href="/students/create">Novo</a>
         <table>
             <thead>
                 <tr>
                     <th>Nome completo</th>
-                    <th>Acompanhamento</th>
+                    <th>E-mail</th>
+                    <th>Ano escolar</th>
                     <th>Informações</th>
                 </tr>
             </thead>
 
             <tbody>
-                {% for teacher in teachers %}
+                {% for student in students %}
                     <tr>
                         <td>
-                            <span style="background-image: url({{teacher.avatar_url}}">
+                            <span style="background-image: url({{student.avatar_url}}">
                             </span>
-                            {{teacher.name}}
+                            {{student.name}}
                         </td>
                         <td>
-                            {{teacher.areas}}
+                            {{student.email}}
                         </td>
                         <td>
-                            <a href="/teachers/{{teacher.id}}">ver</a>
+                            {% if student.level == '5EF' %}5º Ano do Fundamental{% endif %}
+                            {% if student.level == '6EF' %}6º Ano do Fundamental{% endif %}
+                            {% if student.level == '7EF' %}7º Ano do Fundamental{% endif %}
+                            {% if student.level == '8EF' %}8º Ano do Fundamental{% endif %}
+                            {% if student.level == '9EF' %}9º Ano do Fundamental{% endif %}
+                            {% if student.level == '1EM' %}1º Ano do Ensino Médio{% endif %}
+                            {% if student.level == '2EM' %}2º Ano do Ensino Médio{% endif %}
+                            {% if student.level == '3EM' %}3º Ano do Ensino Médio{% endif %}
+                        </td>
+                        <td>
+                            <a href="/students/{{student.id}}">ver</a>
                         </td>
                     </tr>
                 {% endfor %}

@@ -1,7 +1,6 @@
 const fs = require('fs')
 const data = require('../data.json')
-const Intl = require('intl')
-const { age, date, graduation } = require('../utils')
+const { age, date, grade } = require('../utils')
 
 
 //index
@@ -28,21 +27,19 @@ exports.post = function(req, res){
         }
     }
 
-    let {avatar_url, name, birth, level, type, areas} = req.body
+    birth = Date.parse(req.body.birth)
+    
+    let id = 1
+    const lastStudent = data.students[data.students.length - 1]
 
-    birth = Date.parse(birth)
-    const created_at = Date.now()
-    const id = Number(data.students.length + 1)
+    if (lastStudent) {
+        id = lastStudent.id + 1
+    }
 
     data.students.push({
         id,
-        avatar_url,
-        name, 
+       ...req.body,
         birth,
-        level,
-        type,
-        areas,
-        created_at,
     })
 
     fs.writeFile('data.json', JSON.stringify(data, null, 2), function(err){
@@ -61,14 +58,12 @@ exports.show = function(req, res){
         return student.id == id
     })
 
-    if(!foundStudent) return res.send("Professor não encontrado")
+    if(!foundStudent) return res.send("Estudante não encontrado")
 
     const student = {
         ...foundStudent,
-        age: age(foundStudent.birth),
-        areas: foundStudent.areas.split(","),
-        level: graduation(foundStudent.level),
-        created_at: new Intl.DateTimeFormat("pt-br").format(foundStudent.created_at),
+        birth: date(foundStudent.birth).birthDay,
+        level: grade(foundStudent.level),
     }
 
     return res.render('students/show', { student })
@@ -83,11 +78,11 @@ exports.edit = function(req, res){
         return student.id == id
     })
 
-    if(!foundStudent) return res.send("Professor não encontrado")
+    if(!foundStudent) return res.send("Estudante não encontrado")
 
     const student = {
         ...foundStudent,
-        birth: date(foundStudent.birth),
+        birth: date(foundStudent.birth).iso,
     }
 
 
@@ -107,7 +102,7 @@ exports.put = function(req, res){
         }
     })
 
-    if(!foundStudent) return res.send("Professor não encontrado")
+    if(!foundStudent) return res.send("Estudante não encontrado")
 
     const student = {
         ...foundStudent,

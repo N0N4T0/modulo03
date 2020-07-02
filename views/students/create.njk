@@ -2,19 +2,19 @@
 
 {% block head %}
 
-    <title>Professores - Rocketseat</title>
+    <title>Estudantes - Rocketseat</title>
 
     <link rel="stylesheet" href="/styles/people.css">
 {% endblock %}
 
 {% block content %}
-    <form class="card" method="POST" action="/teachers">
+    <form class="card" method="POST" action="/students">
         <section class="picture"></section>
 
         <section class="info">
-            <h3>Cadastro de professor</h3>
+            <h3>Cadastro de estudante</h3>
 
-            {% include 'teachers/fields.njk' %}
+            {% include 'students/fields.njk' %}
 
         </section>
     </form>

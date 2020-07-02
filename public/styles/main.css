@@ -25,6 +25,11 @@ header {
     background: #0606077a;
 }
 
+.links a.active {
+    font-weight: bold;
+    color: var(--color-orange);
+}
+
 .links {
     text-align: center;
 }

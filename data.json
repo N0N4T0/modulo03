@@ -1,5 +1,15 @@
 {
-  "students": [],
+  "students": [
+    {
+      "id": 1,
+      "avatar_url": "https://images.unsplash.com/photo-1567168539593-59673ababaae?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
+      "name": "Nan Baasdon",
+      "email": "nbad@gmail.com",
+      "birth": 1213660800000,
+      "level": "8EF",
+      "classroom": "28"
+    }
+  ],
   "teachers": [
     {
       "id": 1,

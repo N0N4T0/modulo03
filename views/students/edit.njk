@@ -2,7 +2,7 @@
 
 {% block head %}
 
-    <title>Professores - Rocketseat</title>
+    <title>Estudantes - Rocketseat</title>
 
     <link rel="stylesheet" href="/styles/people.css">
 {% endblock %}
@@ -10,26 +10,27 @@
 {% block content %}
     <div class="card">
         <section class="picture"
-            style="background-image: url('https://source.unsplash.com/collection/10553730/505x500');"
+            style="background-image: url({{student.avatar_url}});"
             >
         </section>
 
         <section class="info">
-            <form method="POST" action="/teachers?_method=PUT">         
-                <h3>Editar professor</h3>
+            <form method="POST" action="/students?_method=PUT">         
+                <h3>Editar estudante</h3>
 
-                {% include 'teachers/fields.njk' %}
+                {% include 'students/fields.njk' %}
 
-                <input type="hidden" name="id" value="{{teacher.id}}">
+                <input type="hidden" name="id" value="{{student.id}}">
             </form>
 
-            <form id="form-delete" action="/teachers?_method=DELETE" method="POST">
-                <input type="hidden" name="id" value="{{teacher.id}}">
+            <form id="form-delete" action="/students?_method=DELETE" method="POST">
+                <input type="hidden" name="id" value="{{student.id}}">
 
                 <button type="submit">Deletar</button>
             </form>
         </section>
     </div>
+    {% include 'confirm.njk' %}
    
 
 {% endblock %}
