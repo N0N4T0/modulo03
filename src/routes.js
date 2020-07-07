@@ -1,11 +1,11 @@
 const express = require('express')
 const routes = express.Router()
 
-const videos = require('./data')
-const about = require('./info')
-const video = require('./video')
-const teachers = require('./controllers/teachers')
-const students =require('./controllers/students')
+const videos = require('./app/data')
+const about = require('./app/info')
+const video = require('./app/video')
+const teachers = require('./app/controllers/teachers')
+const students =require('./app/controllers/students')
 
 // Rotas
 routes.get('/', function(req, res) {
