@@ -1,6 +1,4 @@
-const fs = require('fs')
-const data = require('../data.json')
-const { age, date, grade } = require('../utils')
+const { age, date, graduation } = require('../../lib/utils')
 
 
 //index
