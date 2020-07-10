@@ -1,5 +1,8 @@
 const Teacher = require("../models/Teacher")
 
+const { age, date, graduation } = require("../../lib/utils")
+
+
 
 module.exports = {
     index(req, res) {
@@ -27,97 +30,43 @@ module.exports = {
             return res.redirect(`/teachers/${teacher.id}`)
         })
     },
+    show(req, res){
+        Teacher.find(req.params.id, function(teacher){
+            if(!teacher) return res.send("Professor não encontrado")
+    
+            teacher.age = age(teacher.birth)
+            teacher.subjects_taught = teacher.subjects_taught.split(",")
+            
+            teacher.created_at = date(teacher.created_at).format
+                
+            return res.render('teachers/show', { teacher })
+        })
 
+    },
+    edit(req, res){
+        Teacher.find(req.params.id, function(teacher){
+            if(!teacher) return res.send("Professor não encontrado")
+    
+            teacher.birth = date(teacher.birth).iso
+                
+            return res.render('teachers/edit', { teacher })
 
-    // //show = mostrar
-    // exports.show = function(req, res){
-    //     const { id } = req.params
+        })
+    },
+    put(req, res){
+        Teacher.update(req.body, function(){
+            return res.redirect(`/teachers/${req.body.id}`)
 
-    //     const foundTeacher = data.teachers.find(function(teacher){
-    //         return teacher.id == id
-    //     })
-
-    //     if(!foundTeacher) return res.send("Professor não encontrado")
-
-    //     const teacher = {
-    //         ...foundTeacher,
-    //         age: age(foundTeacher.birth),
-    //         areas: foundTeacher.areas.split(","),
-    //         level: graduation(foundTeacher.level),
-    //         created_at: new Intl.DateTimeFormat("pt-br").format(foundTeacher.created_at),
-    //     }
-
-    //     return res.render('teachers/show', { teacher })
-    // }
-
-
-    // //edit
-    // exports.edit = function(req, res){
-    //     const { id } = req.params
-
-    //     const foundTeacher = data.teachers.find(function(teacher){
-    //         return teacher.id == id
-    //     })
-
-    //     if(!foundTeacher) return res.send("Professor não encontrado")
-
-    //     const teacher = {
-    //         ...foundTeacher,
-    //         birth: date(foundTeacher.birth),
-    //     }
-
-
-    //     return res.render('teachers/edit', { teacher })
-    // }
-
-
-    // //put = atualiar
-    // exports.put = function(req, res){
-    //     const { id } = req.body
-    //     let index 
-
-    //     const foundTeacher = data.teachers.find(function(teacher, foundIndex){
-    //         if(teacher.id == id) {
-    //             index = foundIndex
-    //             return true
-    //         }
-    //     })
-
-    //     if(!foundTeacher) return res.send("Professor não encontrado")
-
-    //     const teacher = {
-    //         ...foundTeacher,
-    //         ...req.body,
-    //         id: Number(id),
-    //         birth: Date.parse(req.body.birth),
-    //     }
-
-    //     data.teachers[index] = teacher
-
-    //     fs.writeFile('data.json', JSON.stringify(data, null, 2), function(err){
-    //         if(err) return res.send("Write file error")
+        })
         
-    //         return res.redirect(`/teachers/${id}`)
-    //     })
-    // }
+    },
+    delete(req, res) {
+        Teacher.delete(req.body.id, function(){
+            return res.redirect('/teachers')
 
-
-    // //delete
-    // exports.delete = function(req, res) {
-    //     const { id } = req.body
-
-    //     const filteredTeachers = data.teachers.filter(function(teacher){
-    //         return teacher.id != id
-    //     })
-
-    //     data.teachers = filteredTeachers
-
-    //     fs.writeFile('data.json', JSON.stringify(data, null, 2), function(err){
-    //         if(err) return res.send("Write file error")
-        
-    //         return res.redirect('/teachers')
-    //     })
-    // }
+        })
+           
+    }
 
 
 }

@@ -32,11 +32,24 @@ module.exports = {
         } 
     },
 
-    graduation(level){
-        return (level == 'medio') ? 'Ensino Médio Completo'
-        : (level == 'superior') ? 'Ensino Superior Completo'
-        : (level == 'mestrado') ? 'Mestrado'
+    graduation(value){
+        return (value == 'medio') ? 'Ensino Médio Completo'
+        : (value == 'superior') ? 'Ensino Superior Completo'
+        : (value == 'mestrado') ? 'Mestrado'
         : 'Doutorado'
+            
+        // let graduation = value
+
+        // switch (graduation){
+        //     case "medio":
+        //         return graduation = "Ensino Médio Completo"
+        //     case "superior":
+        //         return graduation = "Ensino Superior Completo"
+        //     case "mestrado":
+        //         return graduation = "Mestrado"
+        //     case "doutorado":
+        //         return graduation = "Doutorado"
+        // }
     },
 
     grade(level){
