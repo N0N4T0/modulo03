@@ -80,12 +80,15 @@ input::placeholder {
     background-color: rgba(140, 155, 240, 0.164);
 }
 
-select[name="level"] {
+select[name="level"],
+select[name="teacher"] {
     padding: 8px 2px;
     font-size: 16px;
+    width: 60%;
 }
 
-select[name="level"] option {
+select[name="level"] option,
+select[name="teacher"] option {
     padding: 8px 2px;
     font-size: 16px;
 }    

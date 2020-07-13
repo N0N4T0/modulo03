@@ -23,7 +23,7 @@
             </div>
 
             <div class="item">
-                <div>Nome completo</div>
+                <div>E-mail</div>
                 <div>{{student.email}}</div>
             </div>
 
@@ -40,6 +40,11 @@
             <div class="item">
                 <div>Carga horária semanal</div>
                 <div>{{student.classroom}}</div>
+            </div>
+
+            <div class="item">
+                <div>Aluno de</div>
+                <div>{{student.teacher_name}}</div>
             </div>
 
             <a href="/students/{{student.id}}/edit" class="button">Editar</a>
