@@ -34,13 +34,13 @@ routes.delete('/teachers', teachers.delete)
 
 
 
-// routes.get('/students', students.index)
-// routes.get('/students/create', students.create)
-// routes.post('/students', students.post)
-// routes.get('/students/:id', students.show)
-// routes.get('/students/:id/edit', students.edit)
-// routes.put('/students', students.put)
-// routes.delete('/students', students.delete)
+routes.get('/students', students.index)
+routes.get('/students/create', students.create)
+routes.post('/students', students.post)
+routes.get('/students/:id', students.show)
+routes.get('/students/:id/edit', students.edit)
+routes.put('/students', students.put)
+routes.delete('/students', students.delete)
 
 
 
