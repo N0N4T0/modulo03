@@ -125,15 +125,17 @@ button[type="submit"] {
 }
 
 #form-delete {
-    position: absolute;
-    right: 26%;
-    bottom: -10.8%;
-    width: 13%;
+    
 }
+
+/* 
+.submit-position {
+    display: inline-block;
+} */
 
 #form-delete button[type="submit"] {
     background-color: rgb(252, 44, 17);
-    width: 100%;
+    width: 50%;
 }
 
 /* SHOW.NJK */
