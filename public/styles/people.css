@@ -274,3 +274,29 @@ tbody tr td:last-child a:hover {
 .table-container .submenu form button {
     margin: 0;
 }
+
+/* PAGINATION */
+.table-container  .paginatioPosition {
+    display: grid;
+    grid-template: 64px 1fr 16px/ 1fr;
+    /* margin: 0; */
+    align-self: start;
+}
+
+
+.table-container .pagination {
+    /* margin: 0; */
+    align-self: end;
+    justify-self: center;
+}
+
+.table-container .pagination a,
+.table-container .pagination span{
+    color: var(--color-cards);
+    text-decoration: none;
+    margin-right: 16px;
+}
+
+.table-container .pagination a:hover {
+    color: var(--color-orange);
+}
