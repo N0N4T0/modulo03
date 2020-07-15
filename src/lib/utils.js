@@ -32,34 +32,25 @@ module.exports = {
         } 
     },
 
-    graduation(value){
-        return (value == 'medio') ? 'Ensino Médio Completo'
-        : (value == 'superior') ? 'Ensino Superior Completo'
-        : (value == 'mestrado') ? 'Mestrado'
-        : 'Doutorado'
-            
-        // let graduation = value
-
-        // switch (graduation){
-        //     case "medio":
-        //         return graduation = "Ensino Médio Completo"
-        //     case "superior":
-        //         return graduation = "Ensino Superior Completo"
-        //     case "mestrado":
-        //         return graduation = "Mestrado"
-        //     case "doutorado":
-        //         return graduation = "Doutorado"
-        // }
+    graduation(value){           
+        switch (value){
+            case ("medio"): return "Ensino Médio Completo"
+            case ("superior"): return "Ensino Superior Completo"
+            case ("mestrado"): return "Mestrado"
+            case ("doutorado"): return "Doutorado"
+        }
     },
 
     grade(level){
-        return (level == '5EF') ? '5º Ano do Ensino Fundamental'
-        : (level == '6EF') ? '6º Ano do Ensino Fundamental'
-        : (level == '7EF') ? '7º Ano do Ensino Fundamental'
-        : (level == '8EF') ? '8º Ano do Ensino Fundamental'
-        : (level == '9EF') ? '9º Ano do Ensino Fundamental'
-        : (level == '1EM') ? '1º Ano do Ensino Médio'
-        : (level == '2EM') ? '2º Ano do Ensino Médio'
-        : '3º Ano do Ensino Médio'
+        switch(level){
+            case ('5EF'): return '5º Ano do Ensino Fundamental'
+            case ('6EF'): return '6º Ano do Ensino Fundamental'
+            case ('7EF'): return '7º Ano do Ensino Fundamental'
+            case ('8EF'): return '8º Ano do Ensino Fundamental'
+            case ('9EF'): return '9º Ano do Ensino Fundamental'
+            case ('1EM'): return '1º Ano do Ensino Médio'
+            case ('2EM'): return '2º Ano do Ensino Médio'
+            case ('3EM'): return '3º Ano do Ensino Médio'
+        }
     }
 } 

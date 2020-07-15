@@ -9,7 +9,23 @@
 
 {% block content %}
     <div class="card table-container">
-        <a href="/students/create">Novo</a>
+        <div class="submenu">
+            <a class=button href="/students/create">Novo</a>
+
+            <form action="/students" method="GET">
+                <input 
+                    type="text" 
+                    name="filter"
+                    placeholder="Nome ou email"
+                    value={{filter}}
+                >
+                <button type="submit">Filtrar</button>
+            </form>
+        </div>
+
+
+
+
         <table>
             <thead>
                 <tr>
@@ -32,14 +48,7 @@
                             {{student.email}}
                         </td>
                         <td>
-                            {% if student.level == '5EF' %}5º Ano do Fundamental{% endif %}
-                            {% if student.level == '6EF' %}6º Ano do Fundamental{% endif %}
-                            {% if student.level == '7EF' %}7º Ano do Fundamental{% endif %}
-                            {% if student.level == '8EF' %}8º Ano do Fundamental{% endif %}
-                            {% if student.level == '9EF' %}9º Ano do Fundamental{% endif %}
-                            {% if student.level == '1EM' %}1º Ano do Ensino Médio{% endif %}
-                            {% if student.level == '2EM' %}2º Ano do Ensino Médio{% endif %}
-                            {% if student.level == '3EM' %}3º Ano do Ensino Médio{% endif %}
+                            {{student.level}}
                         </td>
                         <td>
                             <a href="/students/{{student.id}}">ver</a>
@@ -49,10 +58,16 @@
             </tbody>
         </table>
 
-        <div class="pagination"
-        data-page={{pagination.page}}
-        data-total={{pagination.total}}
-        ></div>
+        <div class="paginatioPosition">
+            <div class="pagination"
+
+                data-page={{pagination.page}}
+                data-total={{pagination.total}}
+                data-filter={{filter}}
+
+            ></div>
+
+        </div>
 
     </div>
 
