@@ -9,7 +9,7 @@
  
 <h2>Descrição</h2>
 
-- Projeto que exibe informações da empresa e vídeos de conteúdo fornecidos pela empresa.
+- Projeto que exibe informações da empresa, professores, alunos e vídeos de conteúdo fornecidos nos quais os professores ministram o assunto da empresa.
 
 <h2>Instruções</h2>
 
